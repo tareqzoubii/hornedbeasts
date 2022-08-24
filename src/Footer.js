@@ -3,7 +3,7 @@ class Footer extends React.Component {
     render(){
       return(
           <div>
-            <p>All rights reserved TAREQ Alzoubii</p> 
+            <p>All rights reserved TAREQ AlZOUBII</p> 
           </div>
       )
     }
