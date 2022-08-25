@@ -26,7 +26,8 @@ class Main extends React.Component {
             description={val.description}
             horns={val.horns} 
             image={val.image_url}
-            showing={this.props.showing}/>
+            showing={this.props.showing}
+            testForm={this.props.testForm}/>
           )
         })}
     </Row>
