@@ -16,7 +16,7 @@ class Main extends React.Component {
 
   render() {
     return(
-      <Row xs={1} md={4} className="g-4">
+      <Row xs={1} md={5} className="g-4">
         {this.props.data.map((val) =>{
           return(
             <HornedBeast
