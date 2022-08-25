@@ -5,7 +5,7 @@ import Main from "./Main";
 import data from "./data.json";
 import SelectedBeast from "./SelectedBeast";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Form from "./Form";
+import Forms from "./Form";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,6 +13,8 @@ class App extends React.Component {
     this.state = {
       show: false,
       datas: {},
+      hornesInfo: {},
+      dataApears: data
     };
   }
 
@@ -31,24 +33,24 @@ class App extends React.Component {
     });
   };
 
-  // testForm=(hornd)=>{
-  //   let selectedHorn = data.filter (val=>val.horns == hornd)
-  //   let toBeUsed = (hornd == 0) ? data : selectd
-  //   this.setState({
-  //     dataOfHornd : selectd,
-  //     dataTobeRender : toBeUsed
-  //   })
-
+  testForm=(hornes)=>{
+    const allOfTheHorns = data.filter (val=>val.horns == hornes)
+    let theyAreSelected = (hornes == 0) ? data : allOfTheHorns
+    this.setState({
+      hornesInfo : allOfTheHorns,
+      dataApears : theyAreSelected
+    })
+  }
   render() {
     return (
       <div>
-        <Header hornForms={this.allHorns}/>
-        <Main data={data} showing={this.myFunction} />
+        <Header/>
+        <Forms testForm={this.testForm}/>
+        <Main data={this.state.dataApears} showing={this.myFunction} />
         <SelectedBeast
           showCard={this.state.show}
           closing={this.closeModal}
           datas={this.state.datas}
-          hornForms={this.state}
         />
         <Footer />
       </div>
